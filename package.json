@@ -8,7 +8,6 @@
     "build:chrome": "parcel build --no-content-hash index.html --out-dir dist/chrome",
     "copy:firefox": "cpy 'manifest.firefox.json' 'icons' 'dist/firefox'",
     "copy:chrome": "cpy 'manifest.chrome.json' 'icons' 'dist/chrome'",
-    "rename:background": "rename -n 'dist/**/background.*.js' 'dist/**/background.js'",
     "rename:firefox": "rename 'dist/firefox/manifest.firefox.json' 'dist/firefox/manifest.json'",
     "rename:chrome": "rename 'dist/chrome/manifest.chrome.json' 'dist/chrome/manifest.json'",
     "prod": "npm-run-all clean build:* copy:* rename:*"
