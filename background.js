@@ -5,14 +5,13 @@ import browser from 'webextension-polyfill'
 const isEmpty = obj =>
   Object.keys(obj).length === 0 && obj.constructor === Object
 
-let data,
-  index,
+let index,
   extensions = []
 
 // NOTE: GETS CURRENT NEW TABS INDEX POSITION
 const getIndex = async () => {
-  data = await browser.storage.sync.get('index')
-  index = isEmpty(data) ? 0 : data.index
+  const store = await browser.storage.sync.get('index')
+  index = isEmpty(store) ? 0 : store.index
 }
 
 // DONE: GET ALL NEW TAB EXTENSIONS LIST
