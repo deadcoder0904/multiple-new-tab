@@ -1,0 +1,28 @@
+{
+  "name": "multiple-new-tab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:firefox": "parcel build --no-content-hash index.html --out-dir dist/firefox",
+    "build:chrome": "parcel build --no-content-hash index.html --out-dir dist/chrome",
+    "copy:firefox": "cpy 'manifest.firefox.json' 'icons' 'dist/firefox'",
+    "copy:chrome": "cpy 'manifest.chrome.json' 'icons' 'dist/chrome'",
+    "rename:background": "rename -n 'dist/**/background.*.js' 'dist/**/background.js'",
+    "rename:firefox": "rename 'dist/firefox/manifest.firefox.json' 'dist/firefox/manifest.json'",
+    "rename:chrome": "rename 'dist/chrome/manifest.chrome.json' 'dist/chrome/manifest.json'",
+    "prod": "npm-run-all clean build:* copy:* rename:*"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "cpy-cli": "^2.0.0",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.0",
+    "parcel-plugin-bundle-manifest": "^0.2.0",
+    "rename-cli": "^6.0.0",
+    "rimraf": "^2.6.3",
+    "webextension-polyfill": "^0.4.0"
+  }
+}

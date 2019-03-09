@@ -1,0 +1,21 @@
+{
+  "manifest_version": 2,
+  "name": "Multiple New Tabs",
+  "version": "1.0.0",
+
+  "description": "Easily switch between multiple new tab extensions",
+  "homepage_url": "https://github.com/deadcoder0904/multiple-new-tab",
+  "icons": {
+    "128": "icon.png"
+  },
+  "permissions": ["management", "tabs", "storage"],
+  "background": {
+    "scripts": ["background.js"]
+  },
+  "applications": {
+    "gecko": {
+      "id": "{a4c4eda4-fb84-4a84-b4a1-f7c1cbf2a1ad}",
+      "strict_min_version": "55.0"
+    }
+  }
+}
