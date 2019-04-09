@@ -12,6 +12,7 @@
     "rename:chrome": "rename 'dist/chrome/manifest.chrome.json' 'dist/chrome/manifest.json'",
     "zip:firefox": "web-ext build --source-dir dist/firefox --artifacts-dir dist/firefox",
     "zip:chrome": "web-ext build --source-dir dist/chrome --artifacts-dir dist/chrome",
+    "magick": "cd screenshots && magick mogrify -resize 1280x800! *.png",
     "prod": "npm-run-all clean build:* copy:* rename:* zip:*"
   },
   "license": "MIT",
